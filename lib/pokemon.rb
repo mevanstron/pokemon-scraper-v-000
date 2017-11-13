@@ -1,7 +1,7 @@
 class Pokemon
   attr_accessor :id, :name, :type, :db, :hp
 
-  def initialize(pokemon, hp: 60)
+  def initialize(id:, name:, type:, db:, hp: 60)
     @id = pokemon[:id]
     @name = pokemon[:name]
     @type = pokemon[:type]
@@ -18,7 +18,7 @@ class Pokemon
     results = db.execute("SELECT * FROM pokemon WHERE id = ?", id).first
 
     pokemon = {:id => results[0], :name => results[1], :type => results[2], :db => db}
-    Pokemon.new(pokemon, 60)
+    Pokemon.new(id: results[0], name: results[1], type: results[2], db: db, hp: 60)
   end
 
   def alter_hp(hp)
