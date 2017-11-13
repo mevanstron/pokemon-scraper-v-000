@@ -1,13 +1,13 @@
 class Pokemon
   attr_accessor :id, :name, :type, :db, :hp
 
-  def initialize(pokemon, hp = 60)
+  def initialize(pokemon, :hp = 60)
     @id = pokemon[:id]
     @name = pokemon[:name]
     @type = pokemon[:type]
-    @hp = pokemon[hp]
+    @hp = pokemon[:hp]
     @db = pokemon[:db]
-    self.alter_hp(hp) if hp = 60
+    self.alter_hp(hp)
   end
 
   def self.save(pk_name, pk_type, db)
