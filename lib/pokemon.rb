@@ -19,10 +19,10 @@ class Pokemon
 
     pokemon = {:id => results[0], :name => results[1], :type => results[2], :db => db}
     Pokemon.new(pokemon, 60)
-
+    self.alter_hp(60)
   end
 
-  def alter_hp
-    db.execute("UPDATE hp FROM pokemon SET hp = ? WHERE id = ?", self.hp, self.id)
+  def alter_hp(hp)
+    db.execute("UPDATE hp FROM pokemon SET hp = ? WHERE id = ?", hp, self.id)
   end
 end
