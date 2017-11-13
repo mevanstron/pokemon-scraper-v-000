@@ -7,7 +7,7 @@ class Pokemon
     @type = pokemon[:type]
     @hp = pokemon[hp]
     @db = pokemon[:db]
-    self.alter_hp(hp)
+    self.alter_hp(hp) if db.execute("SELECT * FROM pokemon WHERE EXISTS (SELECT hp FROM pokemon)")
   end
 
   def self.save(pk_name, pk_type, db)
