@@ -7,7 +7,7 @@ class Pokemon
     @type = pokemon[:type]
     @hp = pokemon[hp]
     @db = pokemon[:db]
-
+    self.alter_hp(hp)
   end
 
   def self.save(pk_name, pk_type, db)
@@ -19,7 +19,6 @@ class Pokemon
 
     pokemon = {:id => results[0], :name => results[1], :type => results[2], :db => db}
     Pokemon.new(pokemon, 60)
-    self.alter_hp(60)
   end
 
   def alter_hp(hp)
