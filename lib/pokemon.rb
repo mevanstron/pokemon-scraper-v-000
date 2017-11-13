@@ -7,7 +7,6 @@ class Pokemon
     @type = type
     @hp = hp
     @db = db
-
   end
 
   def self.save(pk_name, pk_type, db)
@@ -20,7 +19,7 @@ class Pokemon
     Pokemon.new(id: results[0], name: results[1], type: results[2], db: db, hp: 60)
   end
 
-  def alter_hp(hp)
-    db.execute("UPDATE pokemon SET hp = ? WHERE id = ?", hp, self.id)
+  def alter_hp(hp, self.db)
+    self.db.execute("UPDATE pokemon SET hp = ? WHERE id = ?", hp, self.id)
   end
 end
