@@ -16,7 +16,7 @@ class Pokemon
 
   def self.find(id, db)
     results = db.execute("SELECT * FROM pokemon WHERE id = ?",id).first
-    
+
     pokemon = {:id => results[0], :name => results[1], :type => results[2], :db => db}
     Pokemon.new(pokemon, 60)
   end
