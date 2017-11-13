@@ -4,9 +4,9 @@ class Pokemon
   def initialize(id:, name:, type:, db:, hp: 60)
     @id = id
     @name = name
-    @type = pokemon[:type]
-    @hp = pokemon[:hp]
-    @db = pokemon[:db]
+    @type = type
+    @hp = hp
+    @db = db
     self.alter_hp(:hp)
   end
 
